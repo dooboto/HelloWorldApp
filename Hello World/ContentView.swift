@@ -14,7 +14,9 @@ struct ContentView: View {
         VStack(spacing: 20) {
             Text("Hello, \(name.isEmpty ? "World" : name)!")
                 .font(.largeTitle)
+                .bold()
                 .padding()
+                
 
             TextField("Enter your name", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -26,6 +28,7 @@ struct ContentView: View {
             }) {
                 Text("Clear")
                     .font(.title2)
+                    .bold()
                     .padding()
                     .background(Color.red)
                     .foregroundColor(.white)
