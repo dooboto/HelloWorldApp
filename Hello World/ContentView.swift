@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var name: String = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 20) {
+            Text("Hello, \(name.isEmpty ? "World" : name)!")
+                .font(.largeTitle)
+                .padding()
+
+            TextField("Enter your name", text: $name)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                .autocapitalization(.words)
+
+            Button(action: {
+                name = ""
+            }) {
+                Text("Clear")
+                    .font(.title2)
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
         }
         .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }
